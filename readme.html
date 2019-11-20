@@ -7,12 +7,27 @@
 <body>
   <h1></h1>
   <script>
-    let str1 = 'Git is a distributed version control system';
-    let str2 = 'Git is free software distributed under the GPL';
-    let str3 = 'Git has a mutable index called stage';
-    let str4 = 'Git tracks changes of files';
-    let str5 = 'Creating a new branch is quick and simple    conflict fixed';
-    let str6 = 'hh';
+    let start = new Date();
+    let code = '';
+    let now = '';
+
+    document.addEventListener('keydown',function(e){
+      now = new Date();
+      if (now - start > 500) {
+        code = String.fromCharCode(e.keyCode);
+      } else {
+        code += String.fromCharCode(e.keyCode);
+      }
+
+      start = now;
+    })
+
+    window.addEventListener('keydown',function(e){
+      if (e.keyCode === 13) {
+        console.log(code);
+        code = '';
+      }
+    })
   </script>
 </body>
 </html>
